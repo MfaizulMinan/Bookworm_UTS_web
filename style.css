@@ -1,0 +1,530 @@
+/* --- 1. PENGATURAN GLOBAL & VARIABEL WARNA --- */
+/* Tema 1: Light (Default) */
+:root {
+    --primary-color: #3498db;
+    --background-color: #f4f6f9;
+    --surface-color: #ffffff;
+    --text-color: #2c3e50;
+    --border-color: #dddddd;
+    --footer-bg-color: #283747; /* Warna footer bisa kita pisah */
+}
+
+/* Tema 2: Dark */
+body[data-theme="dark"] {
+    --primary-color: #5dade2;
+    --background-color: #000000;
+    --surface-color: #000000;
+    --text-color: #ecf0f1;
+    --border-color: #444;
+    --footer-bg-color: #17202a;
+}
+
+/* Tema 3: Sepia */
+body[data-theme="sepia"] {
+    --primary-color: #b87d48;
+    --background-color: #eee5d3;
+    --surface-color: #fffdfa;
+    --text-color: #5d4037;
+    --border-color: #d4aa7d;
+    --footer-bg-color: #644536;
+}
+
+/* Tema 4: Slate */
+body[data-theme="slate"] {
+    --primary-color: #00cec9;
+    --background-color: #2d3436;
+    --surface-color: #353b48;
+    --text-color: #dfe6e9;
+    --border-color: #636e72;
+    --footer-bg-color: #2c3e50;
+}
+
+/* Tema 5: Winter */
+body[data-theme="winter"] {
+    --primary-color: #4F7C82;
+    --background-color: #cdf9fd;
+    --surface-color: #ffffff;
+    --text-color: #0B2E33;
+    --border-color: #93B1B5;
+    --footer-bg-color: #1d4b52;
+}
+
+/* Tema 6: Matcha */
+body[data-theme="matcha"] {
+    --primary-color: #6a994e;
+    --background-color: #f0f4f0;
+    --surface-color: #fafbf9;
+    --text-color: #3a5335;
+    --border-color: #a9b8a5;
+    --footer-bg-color: #3a5335;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* --- 2. HEADER & NAVIGASI --- */
+header {
+    background-color: var(--surface-color);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.logo i {
+    margin-right: 8px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--primary-color);
+}
+
+#theme-toggle-btn {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 8px 10px;
+    border-radius: 5px;
+}
+
+/* --- 3. KONTEN UTAMA & SECTION --- */
+main {
+    padding: 2rem 5%;
+}
+
+section {
+    margin-bottom: 4rem;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+/* --- 4. SECTION: BERANDA --- */
+.banner {
+    background-image: url('assets/images/Library.jpg'); /* Ganti dengan nama file banner Anda */
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    border-radius: 10px;
+    margin-bottom: 3rem;
+}
+
+.banner h1 {
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.banner p {
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* --- 5. SECTION: KOLEKSI BUKU --- */
+.filter-controls {
+    margin-bottom: 2rem;
+    display: flex;
+    gap: 1rem;
+}
+
+#search-input, #genre-filter {
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--surface-color);
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+#search-input {
+    width: 300px;
+}
+
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.book-card {
+    background-color: var(--surface-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.book-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.book-card h3 {
+    font-size: 1.1rem;
+    margin: 1rem 0.5rem 0.5rem;
+}
+
+.book-card p {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 1rem;
+}
+
+.book-card .read-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /* Sembunyikan tombol */
+    transition: opacity 0.3s ease;
+}
+
+.book-card:hover .read-button {
+    opacity: 1; /* Tampilkan tombol saat hover */
+}
+
+/* --- 6. FOOTER --- */
+footer {
+    background-color: var(--footer-bg-color); /* Warna gelap seperti di referensi */
+    color: #aeb6bf;
+    padding: 3rem 5% 0; /* Padding atas lebih besar */
+    margin-top: 4rem;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding-bottom: 2rem;
+}
+
+.footer-column h3 {
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+/* Membuat garis aksen di bawah judul (seperti garis merah di referensi) */
+.footer-column h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 50px;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+.footer-column p {
+    line-height: 1.6;
+}
+
+.footer-column.about .social-media {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 10px;
+}
+
+.footer-column.about .social-media a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.footer-column.about .social-media a:hover {
+    background-color: var(--primary-color);
+}
+
+.footer-column.links ul,
+.footer-column.contact ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column.links ul li,
+.footer-column.contact ul li {
+    margin-bottom: 1rem;
+}
+
+.footer-column.links a {
+    color: #aeb6bf;
+    text-decoration: none;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.footer-column.links a:hover {
+    color: #ffffff;
+    padding-left: 5px;
+}
+
+.footer-column.contact i {
+    color: var(--primary-color);
+    margin-right: 10px;
+    width: 20px; /* Agar ikon sejajar rapi */
+    text-align: center;
+}
+
+.footer-bottom {
+    border-top: 1px solid #444;
+    padding: 1.5rem 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* Membuat footer responsif di layar kecil */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr; /* Kolom akan menumpuk ke bawah */
+        text-align: center;
+    }
+
+    .footer-column h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .footer-column.about .social-media {
+        justify-content: center;
+    }
+}
+
+/* --- STYLING UNTUK BAGIAN READING STATUS --- */
+.book-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.reading-card {
+    display: flex;
+    gap: 1rem;
+    background-color: var(--surface-color);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.reading-card img {
+    width: 80px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.reading-info {
+    width: 100%;
+}
+
+.reading-info h4 {
+    margin-bottom: 0.5rem;
+}
+
+.reading-info progress {
+    width: 100%;
+    margin: 0.5rem 0;
+}
+
+.reading-actions button {
+    padding: 5px 10px;
+    margin-right: 5px;
+    border: 1px solid var(--primary-color);
+    background-color: transparent;
+    color: var(--primary-color);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.reading-actions button:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.reading-card.simple {
+    align-items: center;
+}
+
+/* --- STYLING UNTUK BAGIAN TENTANG KAMI --- */
+#tentang p {
+    max-width: 800px; /* Agar teks tidak terlalu lebar */
+    margin: 0 auto 3rem auto; /* Tengah dan beri jarak ke bawah */
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.team-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Agar responsif di layar kecil */
+    gap: 2rem; /* Jarak antar kartu */
+}
+
+.team-card {
+    background-color: var(--surface-color);
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    text-align: center;
+    padding: 2rem;
+    width: 280px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.team-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; /* Membuat foto menjadi bulat */
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 4px solid var(--primary-color);
+}
+
+.team-card h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.team-card p {
+    font-size: 1rem;
+    color: #888;
+    margin-bottom: 0;
+}
+
+/* --- STYLING UNTUK SLIDER TEMA --- */
+.theme-slider-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.theme-label {
+    font-weight: 500;
+    width: 50px; /* Beri lebar agar layout tidak bergeser saat teks berubah */
+    text-align: right;
+}
+
+/* Menghilangkan tampilan default slider */
+input[type=range] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100px;
+    height: 10px;
+    background: var(--border-color);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Styling Thumb (Gagang Slider) untuk Chrome/Safari */
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    border: 2px solid var(--surface-color);
+    box-shadow: 0 0 4px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease;
+}
+
+input[type=range]::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+}
+
+/* Styling Thumb (Gagang Slider) untuk Firefox */
+input[type=range]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    border: 2px solid var(--surface-color);
+    box-shadow: 0 0 4px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease;
+}
+
+input[type=range]::-moz-range-thumb:hover {
+    transform: scale(1.1);
+}

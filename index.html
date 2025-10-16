@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BookWorm - Website untuk membaca koleksi buku digital secara online. Proyek UTS Pemrograman Web.">
+    <title>BookWorm - Baca Buku Digital</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <header>
+        <a href="#beranda" class="logo">
+            <i class="fa-solid fa-book-open" aria-hidden="true"></i> BookWorm
+        </a>
+        <nav aria-label="Navigasi Utama">
+            <ul>
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#koleksi">Koleksi Buku</a></li>
+                <li><a href="#tentang">Tentang Kami</a></li>
+            </ul>
+        </nav>
+        <div class="theme-slider-container">
+            <span id="theme-label" class="theme-label">Light</span>
+            <input type="range" id="theme-slider" min="0" max="5" value="0" aria-label="Pilih Tema">
+        </div>
+    </header>
+
+    <main>
+        <section id="beranda" aria-labelledby="judul-beranda">
+            <div class="banner">
+                <div class="banner-text">
+                    <h1 id="judul-beranda">Selamat Datang di BookWorm</h1>
+                    <p>Temukan dan baca buku favoritmu di mana saja.</p>
+                </div>
+            </div>
+            <div class="reading-status">
+                <h2>Sedang Dibaca</h2>
+                <div id="currently-reading-list" class="book-list">
+                    </div>
+                <h2>Selesai Dibaca</h2>
+                <div id="finished-reading-list" class="book-list">
+                    </div>
+            </div>
+        </section>
+
+        <section id="koleksi" aria-labelledby="judul-koleksi">
+            <h2 id="judul-koleksi">Koleksi Buku Kami</h2>
+            <div class="filter-controls">
+                <label for="search-input" class="sr-only">Cari judul atau penulis</label>
+                <input type="text" id="search-input" placeholder="Cari judul atau penulis...">
+                
+                <label for="genre-filter" class="sr-only">Filter berdasarkan genre</label>
+                <select id="genre-filter">
+                    </select>
+            </div>
+            <div id="book-collection-list" class="book-grid">
+                </div>
+        </section>
+
+        <section id="tentang" aria-labelledby="judul-tentang">
+            <h2 id="judul-tentang">Tentang Kami</h2>
+            <p><strong>BookWorm</strong> adalah proyek UTS dari <strong> Kelompok 8, kelas 2024-B</strong> untuk mata kuliah Pemrograman Web. 
+                Website ini didesain untuk memberikan pengalaman membaca buku digital yang sederhana dan interaktif, 
+                seluruhnya dibangun menggunakan HTML, CSS, dan JavaScript.</p>
+
+            <div class="team-container">
+                <div class="team-card">
+                    <img src="assets/images/Profil.jpg" alt="Foto Anggota 1">
+                    <h4>Muhammad Faizul Minan</h4>
+                    <p>24091397048</p>
+                </div>
+
+                <div class="team-card">
+                    <img src="assets/images/Profil.jpg" alt="Foto Anggota 2">
+                    <h4>Faizul Kamil</h4>
+                    <p>24091397045</p>
+                </div>
+
+                <div class="team-card">
+                    <img src="assets/images/Profil.jpg" alt="Foto Anggota 3">
+                    <h4>Tafrih Humaidi</h4>
+                    <p>24091397030</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column about">
+                <h3>BookWorm</h3>
+                <p>Platform digital untuk menemukan dan membaca koleksi buku favoritmu di mana saja dan kapan saja.</p>
+                <div class="social-media">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-column links">
+                <h3>Link Cepat</h3>
+                <ul>
+                    <li><a href="#beranda">Beranda</a></li>
+                    <li><a href="#koleksi">Koleksi Buku</a></li>
+                    <li><a href="#tentang">Tentang Kami</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column contact">
+                <h3>Kontak Kami</h3>
+                <ul>
+                    <li><i class="fa-solid fa-location-dot"></i> Surabaya, Indonesia</li>
+                    <li><i class="fa-solid fa-phone"></i> +62 123 4567 890</li>
+                    <li><i class="fa-solid fa-envelope"></i> kontak@bookworm.dev</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 BookWorm. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
