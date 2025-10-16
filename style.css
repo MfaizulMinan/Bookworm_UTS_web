@@ -1,4 +1,4 @@
-/* --- 1. PENGATURAN GLOBAL & VARIABEL WARNA --- */
+/* --- PENGATURAN GLOBAL & VARIABEL WARNA --- */
 /* Tema 1: Light (Default) */
 :root {
     --primary-color: #3498db;
@@ -76,7 +76,7 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
-/* --- 2. HEADER & NAVIGASI --- */
+/* --- HEADER & NAVIGASI --- */
 header {
     background-color: var(--surface-color);
     padding: 1rem 5%;
@@ -127,7 +127,7 @@ nav a:hover {
     border-radius: 5px;
 }
 
-/* --- 3. KONTEN UTAMA & SECTION --- */
+/* --- KONTEN UTAMA & SECTION --- */
 main {
     padding: 2rem 5%;
 }
@@ -144,7 +144,7 @@ h2 {
     display: inline-block;
 }
 
-/* --- 4. SECTION: BERANDA --- */
+/* --- SECTION: BERANDA --- */
 .banner {
     background-image: url('assets/images/Library.jpg'); /* Ganti dengan nama file banner Anda */
     background-size: cover;
@@ -170,7 +170,7 @@ h2 {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
-/* --- 5. SECTION: KOLEKSI BUKU --- */
+/* --- SECTION: KOLEKSI BUKU --- */
 .filter-controls {
     margin-bottom: 2rem;
     display: flex;
@@ -251,7 +251,7 @@ h2 {
     opacity: 1; /* Tampilkan tombol saat hover */
 }
 
-/* --- 6. FOOTER --- */
+/* --- FOOTER --- */
 footer {
     background-color: var(--footer-bg-color); /* Warna gelap seperti di referensi */
     color: #aeb6bf;
@@ -527,4 +527,171 @@ input[type=range]::-moz-range-thumb {
 
 input[type=range]::-moz-range-thumb:hover {
     transform: scale(1.1);
+}
+
+
+/* --- ATURAN RESPONSIVE (MEDIA QUERIES) --- */
+
+
+/* --- Tampilan Tablet (Layar <= 768px) --- */
+@media (max-width: 768px) {
+    /* Header & Navigasi */
+    header {
+        flex-direction: column; /* Membuat logo, nav, dan slider menumpuk */
+        gap: 1rem;
+        padding: 1rem 2%;
+    }
+
+    /* Konten Utama */
+    main {
+        padding: 2rem 3%;
+    }
+
+    .banner h1 {
+        font-size: 2.5rem; /* Perkecil ukuran judul banner */
+    }
+
+    /* Filter Kontrol */
+    .filter-controls {
+        flex-direction: column; /* Membuat search bar dan filter menumpuk */
+        align-items: stretch;
+    }
+
+    #search-input {
+        width: 100%;
+    }
+    
+    /* Grid Buku dikecilkan sedikit */
+    .book-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    /* Kartu di Beranda */
+    .book-list {
+        grid-template-columns: 1fr; /* Pastikan hanya 1 kolom */
+    }
+}
+
+/* --- Tampilan Mobile (Layar <= 480px) --- */
+@media (max-width: 480px) {
+    /* Pengaturan Font Dasar */
+    body {
+        font-size: 14px;
+    }
+    
+    /* Header lebih simpel */
+    header {
+        padding: 1rem;
+    }
+
+    nav ul {
+        gap: 1.5rem; /* Kurangi jarak antar menu */
+    }
+    
+    /* Banner lebih kecil */
+    .banner {
+        height: 300px;
+    }
+
+    .banner h1 {
+        font-size: 2rem;
+    }
+
+    .banner p {
+        font-size: 1rem;
+    }
+
+    /* Judul Section */
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    /* Grid Buku menjadi 1 kolom */
+    .book-grid {
+        grid-template-columns: repeat (2, 1fr);
+    }
+    
+    .book-card img {
+        height: 250px; /* Kurangi tinggi gambar agar tidak terlalu dominan */
+    }
+
+    /* Kartu "Sedang Dibaca" */
+    .reading-card {
+        flex-direction: column; /* Gambar di atas, info di bawah */
+        align-items: center;
+        text-align: center;
+    }
+    
+    /* Kartu Anggota Tim */
+    .team-card {
+        width: 100%; /* Lebar kartu tim menjadi penuh */
+        padding: 1.5rem;
+    }
+
+    /* Footer */
+    .footer-container {
+        text-align: left;
+    }
+
+    .footer-column h3::after {
+        left: 0;
+        transform: none;
+    }
+
+    .footer-column.about .social-media {
+        justify-content: left;
+    }
+}
+
+/* --- STYLING UNTUK HAMBURGER MENU --- */
+.hamburger {
+    display: none; /* Sembunyikan di desktop */
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 5px;
+    z-index: 1001; /* Pastikan di atas elemen lain */
+}
+
+/* --- ATURAN RESPONSIVE BARU UNTUK NAVIGASI --- */
+@media (max-width: 768px) {
+    /* Sembunyikan navigasi desktop */
+    #main-nav {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Mulai dari luar layar */
+        width: 60%;
+        height: 100vh;
+        background-color: var(--surface-color);
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.4s ease-in-out;
+        z-index: 1000;
+    }
+
+    /* Atur tampilan saat menu aktif */
+    #main-nav.nav-active {
+        right: 0; /* Geser masuk ke dalam layar */
+    }
+
+    /* Atur link di dalam menu mobile */
+    #main-nav ul {
+        flex-direction: column; /* Tumpuk link secara vertikal */
+        text-align: center;
+    }
+    
+    #main-nav a {
+        font-size: 1.2rem;
+    }
+
+    /* Tampilkan tombol hamburger */
+    .hamburger {
+        display: block;
+    }
 }
