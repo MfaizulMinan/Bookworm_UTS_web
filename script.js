@@ -1,4 +1,4 @@
-// --- 5. FUNGSI YANG DIPANGGIL DARI HTML (HARUS GLOBAL) ---
+// --- FUNGSI YANG DIPANGGIL DARI HTML (HARUS GLOBAL) ---
 // Kita letakkan di luar agar bisa diakses oleh 'onclick'
 window.readBook = function(pdfPath, bookId) {
     window.open(pdfPath, '_blank');
@@ -53,17 +53,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 1. DATA BUKU ---
     const books = [
-        { id: 1, title: "Akatsuki Hiden", author: "Masashi Kishimoto", year: 2015, genre: "Fiksi", cover: "assets/images/akatsuki-hiden.png", pdf: "assets/books/akatsuki-hiden.pdf" },
-        { id: 2, title: "Aksi Massa", author: "Tan Malaka", year: 1926, genre: "Sejarah", cover: "assets/images/aksi-massa-tan-malaka-1926.png", pdf: "assets/books/aksi-massa-tan-malaka-1926.pdf" },
-        { id: 3, title: "Anti Malas dan Suka Menunda", author: "Penerbit C-Klik Media", year: 2021, genre: "Self-Help", cover: "assets/images/anti-malas-dan-suka-menunda.png", pdf: "assets/books/anti-malas-dan-suka-menunda.pdf" },
-        { id: 4, title: "Atomic Habits", author: "James Clear", year: 2018, genre: "Self-Help", cover: "assets/images/atomic-habbit.png", pdf: "assets/books/atomic-habbit.pdf" },
-        { id: 5, title: "Berdamai Dengan Diri Sendiri", author: "Muthia Sayekti", year: 2018, genre: "Self-Help", cover: "assets/images/berdamai-dengan-diri-sendiri.png", pdf: "assets/books/berdamai-dengan-diri-sendiri.pdf" },
-        { id: 6, title: "Bicara itu ada seninya", author: "Oh Su Hyang", year: 2016, genre: "Self-Help", cover: "assets/images/bicara-itu-ada-seninya.png", pdf: "assets/books/bicara-itu-ada-seninya.pdf" },
-        { id: 7, title: "Filosofi Teras", author: "Henry Manampiring", year: 2018, genre: "Filsafat", cover: "assets/images/filosofi-teras.png", pdf: "assets/books/filosofi-teras.pdf" },
-        { id: 8, title: "Itachi Shinden", author: "Masashi Kishimoto", year: 2015, genre: "Fiksi", cover: "assets/images/itachi-shinden.png", pdf: "assets/books/itachi-shinden.pdf" },
-        { id: 9, title: "Kakashi Hiden", author: "Masashi Kishimoto", year: 2015, genre: "Fiksi", cover: "assets/images/kakashi-hiden.png", pdf: "assets/books/kakashi-hiden.pdf" },
-        { id: 10, title: "Sejarah Dunia yang Disembunyikan", author: "Jonathan Black", year: 2007, genre: "Sejarah", cover: "assets/images/sejarah-dunia-yang-disembunyikan.png", pdf: "assets/books/sejarah-dunia-yang-disembunyikan.pdf" }
-    ];
+    { id: 1, title: "Akatsuki Hiden", author: "Masashi Kishimoto", year: 2015, genre: "Fiksi", cover: "assets/images/Akatsuki-Hiden.png", pdf: "assets/books/Akatsuki-Hiden.pdf" },
+    { id: 2, title: "Aksi Massa", author: "Tan Malaka", year: 1926, genre: "Sejarah", cover: "assets/images/aksi-massa-tan-malaka-1926.png", pdf: "assets/books/aksi-massa-tan-malaka-1926.pdf" },
+    { id: 3, title: "Anti Malas dan Suka Menunda", author: "Penerbit C-Klik Media", year: 2021, genre: "Self-Help", cover: "assets/images/Anti-Malas-dan-Suka-Menunda.png", pdf: "assets/books/Anti-Malas-dan-Suka-Menunda.pdf" },
+    { id: 4, title: "Atomic Habits", author: "James Clear", year: 2018, genre: "Self-Help", cover: "assets/images/Atomic-Habbit.png", pdf: "assets/books/Atomic-Habbit.pdf" },
+    { id: 5, title: "Berdamai Dengan Diri Sendiri", author: "Muthia Sayekti", year: 2018, genre: "Self-Help", cover: "assets/images/Berdamai-Dengan-Diri-Sendiri.png", pdf: "assets/books/Berdamai-Dengan-Diri-Sendiri.pdf" },
+    { id: 6, title: "Bicara itu ada seninya", author: "Oh Su Hyang", year: 2016, genre: "Self-Help", cover: "assets/images/Bicara-itu-ada-seninya.png", pdf: "assets/books/Bicara-itu-ada-seninya.pdf" },
+    { id: 7, title: "Filosofi Teras", author: "Henry Manampiring", year: 2018, genre: "Filsafat", cover: "assets/images/Filosofi-teras.png", pdf: "assets/books/Filosofi-teras.pdf" },
+    { id: 8, title: "Itachi Shinden", author: "Masashi Kishimoto", year: 2015, genre: "Fiksi", cover: "assets/images/Itachi-Shinden.png", pdf: "assets/books/Itachi-Shinden.pdf" },
+    { id: 9, title: "Kakashi Hiden", author: "Masashi Kishimoto", year: 2015, genre: "Fiksi", cover: "assets/images/Kakashi-Hiden.png", pdf: "assets/books/Kakashi-Hiden.pdf" },
+    { id: 10, title: "Sejarah Dunia yang Disembunyikan", author: "Jonathan Black", year: 2007, genre: "Sejarah", cover: "assets/images/Sejarah-Dunia-yang-Disembunyikan.png", pdf: "assets/books/Sejarah-Dunia-yang-Disembunyikan.pdf" }
+];
 
     // --- 2. PEMILIHAN ELEMEN DOM ---
     const collectionContainer = document.getElementById('book-collection-list');
@@ -182,4 +182,5 @@ document.addEventListener('DOMContentLoaded', () => {
     populateGenreFilter();
     displayBooks(books);
     displayReadingStatus();
+
 });
