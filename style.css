@@ -609,7 +609,7 @@ input[type=range]::-moz-range-thumb:hover {
     
     /* Grid Buku menjadi 1 kolom */
     .book-grid {
-        grid-template-columns: repeat (2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
     
     .book-card img {
@@ -644,54 +644,3 @@ input[type=range]::-moz-range-thumb:hover {
     }
 }
 
-/* --- STYLING UNTUK HAMBURGER MENU --- */
-.hamburger {
-    display: none; /* Sembunyikan di desktop */
-    background: none;
-    border: 1px solid var(--border-color);
-    color: var(--text-color);
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding: 8px 12px;
-    border-radius: 5px;
-    z-index: 1001; /* Pastikan di atas elemen lain */
-}
-
-/* --- ATURAN RESPONSIVE BARU UNTUK NAVIGASI --- */
-@media (max-width: 768px) {
-    /* Sembunyikan navigasi desktop */
-    #main-nav {
-        position: fixed;
-        top: 0;
-        right: -100%; /* Mulai dari luar layar */
-        width: 60%;
-        height: 100vh;
-        background-color: var(--surface-color);
-        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: right 0.4s ease-in-out;
-        z-index: 1000;
-    }
-
-    /* Atur tampilan saat menu aktif */
-    #main-nav.nav-active {
-        right: 0; /* Geser masuk ke dalam layar */
-    }
-
-    /* Atur link di dalam menu mobile */
-    #main-nav ul {
-        flex-direction: column; /* Tumpuk link secara vertikal */
-        text-align: center;
-    }
-    
-    #main-nav a {
-        font-size: 1.2rem;
-    }
-
-    /* Tampilkan tombol hamburger */
-    .hamburger {
-        display: block;
-    }
-}
